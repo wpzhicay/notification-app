@@ -1,12 +1,7 @@
 <h2>Enviar Notificación</h2>
 
 <form (ngSubmit)="send()">
-  <input
-    [(ngModel)]="message"
-    name="message"
-    placeholder="Escribe tu mensaje"
-    required
-  />
+  <input [(ngModel)]="message" name="message" placeholder="Mensaje" required />
   <select [(ngModel)]="type" name="type" required>
     <option value="email">Email</option>
     <option value="sms">SMS</option>
@@ -15,11 +10,9 @@
   <button type="submit">Enviar</button>
 </form>
 
-<hr />
-
 <h3>Historial de Notificaciones</h3>
 <ul>
   <li *ngFor="let n of notifications">
-    <strong>{{ n.type | uppercase }}:</strong> {{ n.message }}
+    <strong>{{ n.type | uppercase }}</strong>: {{ n.message }} ({{ n.created_at | date:'short' }})
   </li>
 </ul>
